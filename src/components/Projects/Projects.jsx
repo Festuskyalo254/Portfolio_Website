@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react'
 import './Projects.css'
 
 const desiredRepos = [
-  "Wanderlust-Mega-Project",
-  "E-Commerce-App-Project",
-  "BankApp-DevSecOps-Project",
-  "Netflix-DevSecOps-Project",
-  "Full-Stack-ChatApp",
-  "Two-Tier-Flask-App"
+  "Weather_Web_App",
+  "Inventory-Management-System",
+  "third-year-project",
+  "SMART-PETRO-STATION",
+  "Jaza Gas Desktop App",
+  "Leather_luxury_eCommerce_website"
 ];
 
 const Projects = () => {
@@ -15,7 +15,7 @@ const Projects = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('https://api.github.com/users/wahajahmad-cyber/repos')
+    fetch('https://api.github.com/users/Festuskyalo254/repos')
       .then(response => response.json())
       .then(data => {
         const filteredRepos = data.filter(repo => desiredRepos.includes(repo.name));
@@ -52,7 +52,7 @@ const Projects = () => {
       </div>
 
       <div className="showmore">
-        <a href="https://github.com/wahajahmad-cyber" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/Festuskyalo254" target="_blank" rel="noopener noreferrer">
           <p>View More on GitHub</p>
           <img src="/arrow_icon.svg" alt="Arrow icon pointing right" />
         </a>

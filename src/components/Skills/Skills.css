@@ -136,6 +136,24 @@
     text-shadow: 0 0 15px #F1502F;
 }
 
+.skills-format:nth-child(7):hover .skill-icon { /* Git */
+    color: #f12f9d;
+    filter: drop-shadow(0 0 8px #f12f9d) brightness(1.2);
+    text-shadow: 0 0 15px #F1502F;
+}
+
+.skills-format:nth-child(8):hover .skill-icon { /* Git */
+    color: #2ff173;
+    filter: drop-shadow(0 0 8px #2ff169) brightness(1.2);
+    text-shadow: 0 0 15px #F1502F;
+}
+
+.skills-format:nth-child(9):hover .skill-icon { /* Git */
+    color: #2fb7f1;
+    filter: drop-shadow(0 0 8px #2fa7f1) brightness(1.2);
+    text-shadow: 0 0 15px #F1502F;
+}
+
 /* Text Styling */
 .skills-format h2 {
     font-size: 26px;

@@ -140,13 +140,13 @@ const Contact = () => {
           <p>I'm currently available to take on new opportunities, so feel free to contact me.</p>
           <div className="contact-details">
             <div className="detail">
-              <img src="/mail_icon.svg" alt="mail" /><p>wahajahmad.alnafi@gmail.com</p>
+              <img src="/mail_icon.svg" alt="mail" /><p>festusk625@gmail.com</p>
             </div>
             <div className="detail">
-              <img src="/location_icon.svg" alt="location" /><p>Karachi, Pakistan</p>
+              <img src="/location_icon.svg" alt="location" /><p>Nairobi, Kenya</p>
             </div>
             <div className="detail">
-              <img src="/call_icon.svg" alt="call" /><p>+92 301-2529273</p>
+              <img src="/call_icon.svg" alt="call" /><p>+254114755673</p>
             </div>
           </div>
         </div>

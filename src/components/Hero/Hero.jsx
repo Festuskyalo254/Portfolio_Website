@@ -51,21 +51,21 @@ const Hero = () => {
       
       {/* Image directly from public folder */}
       <img 
-        src="/Wahaj2.png"
-        alt="Wahaj Ahmed - DevOps Engineer"
+        src="/Kyalo.png"
+        alt="Festus Kyalo - Software Engineer"
         loading="lazy"
         decoding="async"
       />
 
       <div className="hero-content">
         <h1>
-          <span>Hey! I&apos;m Wahaj Ahmed,</span><br/>
-          a DevOps Engineer
+          <span>Hey! I&apos;m Festus Kyalo,</span><br/>
+          a Software Engineer
         </h1>
 
         <TypeAnimation
           sequence={[
-            "I'm a DevOps Engineer, I have skills that might help you to grow your company",
+            "I'm a Software Engineer, I have skills that might help you to grow and market your company",
             1000,
             'I build Cloud/DevOps Infrastructure',
             1000,
@@ -85,8 +85,8 @@ const Hero = () => {
             </AnchorLink>
           </div>
           <a 
-            href="/Wahaj-Resume.pdf"
-            download="Wahaj-Resume.pdf"
+            href="/Festus_Mutuvi_Resume.pdf"
+            download=".pdf"
             className="hero-resume"
             style={{ textDecoration: 'none' }}
             target="_blank"

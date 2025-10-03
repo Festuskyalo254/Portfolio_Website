@@ -57,11 +57,13 @@
 
 .about-left img {
     width: 100%; /* Changed from 85% */
-    height: auto; /* Let height be automatic */
+    height: 100%; /* Let height be automatic */
     border-radius: 20px;
+    object-fit: cover;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     margin-top: -10px;
+    position: relative;
 }
 
 .about-left::after {
