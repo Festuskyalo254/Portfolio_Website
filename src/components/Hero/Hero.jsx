@@ -98,19 +98,19 @@ const Hero = () => {
         </div>
 
         <div className="hero-social">
-          <a href="https://www.linkedin.com/in/wahaj-ahmed-ansari-00b5752b9" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/kyalofestus/" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faLinkedin} />
           </a>
-          <a href="https://github.com/wahajahmad-cyber" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Festuskyalo254" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faGithub} />
           </a>
-          <a href="https://www.instagram.com/meetwahaj" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/festus.nicholas.73" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faInstagram} />
           </a>
-          <a href="https://discord.com/users/920959349004853288" target="_blank" rel="noopener noreferrer">
+          <a href="https://discord.com/users/1358673582892519526" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faDiscord} />
           </a>
-          <a href="https://t.me/wahaj_aa" target="_blank" rel="noopener noreferrer">
+          <a href="https://t.me/@Papi_Champagnee" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faTelegram} />
           </a>
         </div>
