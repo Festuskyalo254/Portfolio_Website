@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 
   // ✅ Verify reCAPTCHA
   try {
-    const secret = process.env.RECAPTCHA_SITE_KEY;
+    const secret = process.env.VITE_RECAPTCHA_SITE_KEY;
     const response = await axios.post(
       "https://www.google.com/recaptcha/api/siteverify",
       qs.stringify({ secret, response: token }),
