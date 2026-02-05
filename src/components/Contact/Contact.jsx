@@ -1,18 +1,16 @@
 import React, { useEffect, useState, useRef } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha';
+
 import './Contact.css';
 
 const Contact = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [captchaValue, setCaptchaValue] = useState(null);
   const [formInvalid, setFormInvalid] = useState(false); // To track invalid submission attempts
   const [isFormComplete, setIsFormComplete] = useState(false); // To track if all fields are filled for hover effect
   const [formSubmitted, setFormSubmitted] = useState(false); // To track if the form has been successfully submitted
   const [invalidFields, setInvalidFields] = useState({}); // To track which fields are invalid
   const contactRef = useRef(null);
-  const captchaRef = useRef(null); // Ref for ReCAPTCHA component
   const errorRef = useRef(null); // Ref for error message
 
   const validateEmail = (email) => {
@@ -20,22 +18,13 @@ const Contact = () => {
     return emailRegex.test(email);
   };
 
-  const checkFormCompletion = (name, email, message, captcha) => {
-    const isComplete = !!name && validateEmail(email) && !!message && !!captcha;
-    console.log('checkFormCompletion - isComplete:', isComplete, 'name:', !!name, 'emailValid:', validateEmail(email), 'message:', !!message, 'captcha:', !!captcha);
+  const checkFormCompletion = (name, email, message) => {
+    const isComplete = !!name && validateEmail(email) && !!message;
+    console.log('checkFormCompletion - isComplete:', isComplete, 'name:', !!name, 'emailValid:', validateEmail(email), 'message:', !!message);
     setIsFormComplete(isComplete);
   };
 
-  const handleCaptchaChange = (value) => {
-    setCaptchaValue(value);
-    setFormInvalid(false); // Reset error state when captcha is changed
-    setFormSubmitted(false); // Reset formSubmitted when user interacts with form
-    const name = contactRef.current.querySelector('[name="name"]').value.trim();
-    const email = contactRef.current.querySelector('[name="email"]').value.trim();
-    const message = contactRef.current.querySelector('[name="message"]').value.trim();
-    console.log('handleCaptchaChange - name:', name, 'email:', email, 'message:', message, 'captcha:', value);
-    checkFormCompletion(name, email, message, value);
-  };
+
 
   const handleInputChange = (e) => {
     setFormInvalid(false); // Reset error state on input change
@@ -44,8 +33,8 @@ const Contact = () => {
     const name = contactRef.current.querySelector('[name="name"]').value.trim();
     const email = contactRef.current.querySelector('[name="email"]').value.trim();
     const message = contactRef.current.querySelector('[name="message"]').value.trim();
-    console.log('handleInputChange - name:', name, 'email:', email, 'message:', message, 'captcha:', captchaValue);
-    checkFormCompletion(name, email, message, captchaValue);
+    console.log('handleInputChange - name:', name, 'email:', email, 'message:', message);
+    checkFormCompletion(name, email, message);
   };
 
   const handleSubmit = async (e) => {
@@ -56,8 +45,8 @@ const Contact = () => {
     const email = e.target.email.value.trim();
     const message = e.target.message.value.trim();
 
-    if (!name || !email || !message || !captchaValue) {
-      setError('Please fill out all fields and complete the CAPTCHA.');
+    if (!name || !email || !message) {
+      setError('Please fill out all fields.');
       setFormInvalid(true);
       setInvalidFields({
         name: !name,
@@ -86,7 +75,6 @@ const Contact = () => {
       name,
       email,
       message,
-      token: captchaValue,
     };
 
     try {
@@ -104,10 +92,7 @@ const Contact = () => {
         setFormSubmitted(true); // Mark form as successfully submitted
         setIsFormComplete(false); // Reset form completion state as fields are cleared
         e.target.reset();
-        setCaptchaValue(null);
-        if (captchaRef.current) {
-          captchaRef.current.reset();
-        }
+
       } else {
         setError(data.message || 'Something went wrong. Please try again.');
       }
@@ -125,7 +110,7 @@ const Contact = () => {
     }
   }, [success]);
 
-  const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+
 
   return (
     <div id='contact' ref={contactRef} className='contact'>
@@ -164,24 +149,12 @@ const Contact = () => {
           <label htmlFor="message">Write your message here:</label>
           <textarea name="message" rows="8" placeholder="Enter your Message Here:" required onChange={handleInputChange} className={invalidFields.message ? 'input-error' : ''} />
 
-          {siteKey ? (
-            <div>
-              <ReCAPTCHA
-                sitekey={siteKey}
-                onChange={handleCaptchaChange}
-                ref={captchaRef}
-              />
-            </div>
-          ) : (
-            <p style={{ color: 'red' }}>
-              ⚠️ ReCAPTCHA site key is missing! Please set VITE_RECAPTCHA_SITE_KEY in your .env file.
-            </p>
-          )}
+
 
           <button
             type="submit"
             className={`contact-submit ${!isFormComplete && !formSubmitted ? 'contact-submit-incomplete' : ''}`}
-            disabled={loading || !siteKey}
+            disabled={loading}
           >
             {loading ? 'Sending...' : 'Submit Now'}
           </button>
